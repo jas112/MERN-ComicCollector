@@ -2,10 +2,10 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import comicService from './comicService'
 
 const initialState = {
-    comics = [],
-    isError = false,
-    isSuccess = false,
-    isLoading = false
+    comics: [],
+    isError: false,
+    isSuccess: false,
+    isLoading: false
 }
 
 // collect comic
