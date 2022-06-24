@@ -14,10 +14,16 @@ const initialState = {
 
 // register user
 export const register = createAsyncThunk('auth/register', async (user, thunkAPI) => {
+    console.log('@authSlice register...');
     try {
         return await authService.register(user)
     } catch (error) {
-        const message = (error.response && error.response.data && error.data.message) || error.message || error.toString()
+        const message = 
+        (error.response && 
+            error.response.data && 
+            error.data.message) || 
+            error.message || 
+            error.toString()
         return thunkAPI.rejectWithValue(message)
     }
 })
@@ -27,13 +33,19 @@ export const  login = createAsyncThunk('auth/login', async (user, thunkAPI) => {
     try {
         return await authService.login(user)
     } catch (error) {
-        const message = (error.response && error.response.data && error.data.message) || error.message || error.toString()
+        const message = 
+        (error.response && 
+            error.response.data && 
+            error.data.message) || 
+            error.message || 
+            error.toString()
         return thunkAPI.rejectWithValue(message)
     }
 })
 
 // logout user
 export const logout = createAsyncThunk('auth/logout', async () => {
+    console.log('@frontend  authSlice.logout...')
     await authService.logout()
 })
 
@@ -53,36 +65,40 @@ export const authSlice = createSlice({
             .addCase(register.pending, (state) => {
                 state.isLoading = true
             })
-            .addCase(register.fulfilled, (state) => {
+            .addCase(register.fulfilled, (state, action) => {
                 state.isLoading = false
                 state.isSuccess = true
                 state.user = action.payload
             })
-            .addCase(register.rejected, (state) => {
+            .addCase(register.rejected, (state, action) => {
                 state.isLoading = false
                 state.isError = true
                 state.message = action.payload
                 state.user = null
             })
+
+        builder
             .addCase(login.pending, (state) => {
                 state.isLoading = true
             })
-            .addCase(login.fulfilled, (state) => {
+            .addCase(login.fulfilled, (state, action) => {
                 state.isLoading = false
                 state.isSuccess = true
                 state.user = action.payload
             })
-            .addCase(login.rejected, (state) => {
+            .addCase(login.rejected, (state, action) => {
                 state.isLoading = false
                 state.isError = true
                 state.message = action.payload
                 state.user = null
             })
+
+        builder
             .addCase(logout.fulfilled, (state) => {
                 state.user = null
             })
     }
 })
 
-export const {reset} = authService.actions
+export const {reset} = authSlice.actions
 export default authSlice.reducer

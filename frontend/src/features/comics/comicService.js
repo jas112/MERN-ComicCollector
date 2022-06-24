@@ -8,7 +8,7 @@ const collectComic = async (comicData, token) => {
     const config = {
         headers: {
             Authorization: `Bearer ${token}`
-        }
+        },
     }
 
     const response = await axios.post(API_URL, comicData, config)
@@ -23,7 +23,7 @@ const getUserComics = async (token) => {
     const config = {
         headers: {
             Authorization: `Bearer ${token}`
-        }
+        },
     }
 
     const response = await axios.get(API_URL, config)
@@ -38,11 +38,12 @@ const removeComic =  async (comicId, token) => {
     const config = {
         headers: {
             Authorization: `Bearer ${token}`
-        }
+        },
     }
 
     const response = await axios.delete(API_URL + comicId, config)
 
+    return response.data
 }
 
 
@@ -51,3 +52,5 @@ const comicService = {
     getUserComics,
     removeComic
 }
+
+export default comicService

@@ -8,6 +8,8 @@ const User = require('../models/userModel')
 // @access  Private
 const registerUser = asyncHandler(async ( req, res ) => {
 
+    console.log('@backend registerUser...');
+
     const {firstName, lastName, email, password} = req.body;
     
     if(!firstName || !lastName || !email || !password){
@@ -33,6 +35,7 @@ const registerUser = asyncHandler(async ( req, res ) => {
     })
 
     if(user){
+        console.log('backend user created');
         res.status(201).json({
             _id: user.id,
             firstName: user.firstName,
@@ -41,6 +44,7 @@ const registerUser = asyncHandler(async ( req, res ) => {
             token: generateToken(user._id)
         })
     }else{
+        console.log('backend user creation failed');
         res.status(400)
         throw new Error('invalid user data.')
     }
