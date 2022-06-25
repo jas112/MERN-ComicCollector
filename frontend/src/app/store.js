@@ -5,6 +5,6 @@ import comicReducer from '../features/comics/comicSlice';
 export const store = configureStore({
   reducer: {
     auth: authReducer,
-    comic: comicReducer
+    comics: comicReducer,
   },
 });

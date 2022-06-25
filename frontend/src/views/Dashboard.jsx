@@ -16,6 +16,7 @@ function Dashboard() {
     const {comics, isLoading, isError, message} = useSelector((state) => state.comics)
 
     useEffect(() => {
+
         if(isError){
             console.log(message);
         }
@@ -35,13 +36,24 @@ function Dashboard() {
         return <Spinner />
     }
 
-
   return (
     <>
     
         <section className='heading'>
             <h1> Welcome {user && user.firstName + ' ' + user.lastName}</h1>
             <p>ComicCollector Dashboard</p>
+        </section>
+
+        <section className='content'>
+
+            {comics.length > 0 ? (
+                <div className="comics">
+                    {comics.map((comic) => (
+                        <ComicItem key={comic.id} goal={comic} />
+                    ))}
+                </div>
+            ) : (<h3> You have not collected any comics.</h3>)}
+            
         </section>
     
     </>

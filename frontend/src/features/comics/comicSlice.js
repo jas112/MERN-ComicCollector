@@ -44,7 +44,7 @@ export const getUserComics = createAsyncThunk('comics/getAll', async (_, thunkAP
 })
 
 // remove comic
-export const removeComic = createAsyncThunk('comics/collect', async (comicId, thunkAPI) => {
+export const removeComic = createAsyncThunk('comics/delete', async (comicId, thunkAPI) => {
     try {
         const token = thunkAPI.getState().auth.user.token
         return await comicService.removeComic(comicId, token)
@@ -80,8 +80,8 @@ export const comicSlice = createSlice({
                 state.isLoading = false
                 state.isError = true
                 state.message = action.payload
-            });
-        
+            })
+
         builder
             .addCase(getUserComics.pending, (state) => {
                 state.isLoading = true
@@ -95,8 +95,8 @@ export const comicSlice = createSlice({
                 state.isLoading = false
                 state.isError = true
                 state.message = action.payload
-            });
-        
+            })
+
         builder
             .addCase(removeComic.pending, (state) => {
                 state.isLoading = true
@@ -104,13 +104,13 @@ export const comicSlice = createSlice({
             .addCase(removeComic.fulfilled, (state, action) => {
                 state.isLoading = false
                 state.isSuccess = true
-                state.comics = state.comics.filter((comic) => comic._id !== action.payload.id) 
+                state.comics = state.comics.filter((comic) => comic._id !== action.payload.id)
             })
             .addCase(removeComic.rejected, (state, action) => {
                 state.isLoading = false
                 state.isError = true
                 state.message = action.payload
-            });
+            })
     }
 })
 

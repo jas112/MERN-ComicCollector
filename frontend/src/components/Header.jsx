@@ -41,11 +41,6 @@ function Header() {
                                 <FaUser /> Register
                             </Link>
                         </li>
-                        <li>
-                            <button className='btn' onClick={onLogout}>
-                                <FaSignOutAlt /> Logout
-                            </button>
-                        </li>
                     </>
                 )
             }
