@@ -93,10 +93,13 @@ h3 {
 }
 
 .comic {
-  background-color: #1f1f1f;
+  background-color: #3b3b3b;
   margin: 10px 0;
   padding: 20px 0 10px;
   position: relative;
+  border-radius: 5px;
+  box-shadow: 3px 3px 6px #00000080;
+  color:#ff4500;
 }
 
 .comic .close {
@@ -106,6 +109,7 @@ h3 {
   cursor: pointer;
   border: none;
   background: none;
+  color:#e6e6e6;
 }
 
 .form,

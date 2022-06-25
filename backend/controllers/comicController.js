@@ -11,10 +11,31 @@ const { runInNewContext } = require('vm')
 const collectComic = asyncHandler(async ( req, res ) => {
 
     const {title, issueNumber, publisher, yearOfPublication, writer, artist} = req.body;
+
+    console.log(`@backend comicController req.body => ${JSON.stringify(req.body)}`);
     
     if(!title || !issueNumber || !publisher || !yearOfPublication || !writer || !artist){
         res.status(400);
-        throw new Error('Please submit values for all fields.')
+        let errMsg = 'Missing Values >>> '
+        if(!title){
+            errMsg = errMsg + ' title'
+        }
+        if(!issueNumber){
+            errMsg = errMsg + ' issueNumber'
+        }
+        if(!publisher){
+            errMsg = errMsg + ' publisher'
+        }
+        if(!yearOfPublication){
+            errMsg = errMsg + ' yearOfPublication'
+        }
+        if(!writer){
+            errMsg = errMsg + ' writer'
+        }
+        if(!artist){
+            errMsg = errMsg + ' artist'
+        }
+        throw new Error('Please submit values for all fields. ' + errMsg)
     }
 
     const comic = await Comic.create({
