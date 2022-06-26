@@ -111,7 +111,8 @@ h3 {
   cursor: pointer;
   border: none;
   background: none;
-  color:#e6e6e6;
+  color:#ffd500;
+  font-size: 28px;
 }
 
 .form,
@@ -134,7 +135,8 @@ h3 {
   margin-bottom: 10px;
   font-family: inherit;
   background-color: transparent;
-  color:#000
+  color:#12d200;
+  font-weight: bold;
 }
 
 .form-group label {
@@ -148,10 +150,11 @@ h3 {
   padding: 10px 20px;
   border: 1px solid #000;
   border-radius: 5px;
-  background: #000;
-  color: #fff;
-  font-size: 16px;
-  font-weight: 700;
+  background: #ff4500;
+  color: #000;
+  font-size: 21px;
+  font-weight: bold;
+  -webkit-text-stroke: 1px;
   cursor: pointer;
   text-align: center;
   appearance: button;

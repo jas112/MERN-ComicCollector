@@ -16,7 +16,7 @@ function ComicItem({comic}) {
         <p>Publisher: {comic.yearOfPublication}</p>
         <p>Writer: {comic.writer}</p>
         <p>Artist: {comic.artist}</p>
-        <button onClick={() => dispatch(removeComic(comic._id))} className='close'>X</button>
+        <button onClick={() => dispatch(removeComic(comic._id))} className='close'>&#9762;</button>
     </div>
   )
 }

@@ -20,7 +20,7 @@ const registerUser = asyncHandler(async ( req, res ) => {
     const userExists = await User.findOne({email});
 
     if(userExists){
-        res.status(500)
+        res.status(400)
         throw new Error('User already exists with that email.')
     }
 
@@ -88,7 +88,7 @@ const generateToken = (id) => {
     return jwt.sign(
         {id}, 
         process.env.JWT_SECRET, 
-        {expiresIn: '30d'}
+        {expiresIn: '30d',}
     )
 
 }
