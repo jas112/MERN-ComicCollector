@@ -8,4 +8,4 @@ router.post('/', protect, collectComic)
 router.get('/', protect, getUserComics)
 router.delete('/:id', protect, removeComic)
 
-module.exports = router
+module.exports = router;

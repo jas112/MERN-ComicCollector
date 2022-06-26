@@ -30,9 +30,7 @@ const login = async (userData) => {
 
 // logout user
 const logout = () => {
-    console.log('@frontend  authSlice.logout...')
-    const userInfo = localStorage.getItem('user')
-    console.log(`user:  ${userInfo}`)
+    console.log('@frontend authService.logout...')
     localStorage.removeItem('user')
 }
 

@@ -23,6 +23,8 @@ function Dashboard() {
 
         if(!user){
             navigate('/login')
+        }else{
+            return
         }
 
         dispatch(getUserComics())
@@ -48,7 +50,7 @@ function Dashboard() {
             {comics.length > 0 ? (
                 <div className="comics">
                     {comics.map((comic) => (
-                        <ComicItem key={comic.id} comic={comic} />
+                        <ComicItem key={comic._id} comic={comic} />
                     ))}
                 </div>
             ) : (<h3> You have not collected any comics.</h3>)}

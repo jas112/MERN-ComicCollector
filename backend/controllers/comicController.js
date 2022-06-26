@@ -1,9 +1,5 @@
-const jwt = require('jsonwebtoken')
-const bcrypt = require('bcryptjs')
 const asyncHandler = require('express-async-handler')
 const Comic = require('../models/comicModel')
-const { restart } = require('nodemon')
-const { runInNewContext } = require('vm')
 
 // @desc    Collect Comic
 // @route   POST /api/comics/
