@@ -6,6 +6,6 @@ const {protect} = require('../middleware/authMiddleware')
 
 router.post('/', protect, collectComic)
 router.get('/', protect, getUserComics)
-router.delete('/', protect, removeComic)
+router.delete('/:id', protect, removeComic)
 
 module.exports = router

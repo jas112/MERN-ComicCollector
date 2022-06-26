@@ -53,7 +53,6 @@ function ComicForm() {
     };
 
   return (
-    <>
         <section className="form">
             <form onSubmit={onSubmit}>
                 <div className="form-group">
@@ -127,7 +126,6 @@ function ComicForm() {
                 </div>
             </form>
         </section>
-    </>
   )
 }
 

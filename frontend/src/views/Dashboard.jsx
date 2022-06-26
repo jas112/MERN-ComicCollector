@@ -1,7 +1,7 @@
 import React from 'react'
-import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
+import { useEffect } from 'react'
 import ComicForm from '../components/ComicForm'
 import ComicItem from '../components/ComicItem'
 import Spinner from '../components/Spinner'
@@ -33,12 +33,11 @@ function Dashboard() {
     }, [user, navigate, isError, message, dispatch])
 
     if(isLoading){
-        return <Spinner />
+        return <Spinner/>
     }
 
   return (
-    <>
-    
+    <div>
         <section className='heading'>
             <h1> Welcome {user && user.firstName + ' ' + user.lastName}</h1>
             <p>ComicCollector Dashboard</p>
@@ -55,9 +54,7 @@ function Dashboard() {
             ) : (<h3> You have not collected any comics.</h3>)}
             
         </section>
-    
-    </>
-
+    </div>
   )
 }
 

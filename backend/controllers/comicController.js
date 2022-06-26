@@ -70,6 +70,8 @@ const removeComic = asyncHandler(async (req, res) => {
 
     const  comic = await Comic.findById(req.params.id)
 
+    console.log(`@backend comicController removeComic - comic => ${comic}`)
+
     if(!comic){
         res.status(400)
         throw new Error('Comic not found.')

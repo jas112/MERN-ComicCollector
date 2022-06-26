@@ -41,6 +41,8 @@ const removeComic =  async (comicId, token) => {
         },
     }
 
+    console.log(`@comicSlice comicId => ${comicId}`)
+
     const response = await axios.delete(API_URL + comicId, config)
 
     return response.data

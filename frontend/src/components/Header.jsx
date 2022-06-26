@@ -5,9 +5,9 @@ import {useSelector, useDispatch} from 'react-redux';
 import {logout, reset} from '../features/auth/authSlice';
 
 function Header() {
-    const navigate = useNavigate();
-    const dispatch = useDispatch();
-    const {user} = useSelector((state) => state.auth);
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+    const {user} = useSelector((state) => state.auth )
 
     const onLogout = () => {
         dispatch(logout());
@@ -50,4 +50,4 @@ function Header() {
   )
 }
 
-export default Header;
+export default Header
